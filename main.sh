@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
+echo Show env :
+env
 
 if [ "$SKIP_PUSH" = "true" ]; then
   github-comment exec -- "$TF_COMMAND" init -input=false
