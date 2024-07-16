@@ -10,7 +10,7 @@ echo "show ls :"
 ls
 echo "---"
 echo content from env var ROOT_DIR : $ROOT_DIR
-ls -la $ROOT_DIR
+ls -lRa $ROOT_DIR
 echo "----"
 if [ "$SKIP_PUSH" = "true" ]; then
   github-comment exec -- "$TF_COMMAND" init -input=false
