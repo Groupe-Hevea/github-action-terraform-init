@@ -9,8 +9,8 @@ echo "show pwd : $(pwd)"
 echo "show ls :"
 ls
 echo "---"
-echo show content from ROOT_DIR :
-echo ls $ROOT_DIR
+echo content from env var ROOT_DIR : $ROOT_DIR
+ls -la $ROOT_DIR
 echo "----"
 if [ "$SKIP_PUSH" = "true" ]; then
   github-comment exec -- "$TF_COMMAND" init -input=false
