@@ -26,7 +26,8 @@ fi
 
 # shellcheck disable=SC2086
 github-comment exec -- "$TF_COMMAND" providers lock $PROVIDERS_LOCK_OPTS
-echo BEFORE git diff : git diff --quiet -C "$ROOT_DIR" "$ROOT_DIR/$WORKING_DIR/.terraform.lock.hcl"
+echo 'BEFORE git diff : git diff -C "$ROOT_DIR/$WORKING_DIR" .terraform.lock.hcl'
+echo BEFORE git diff : git diff -C "$ROOT_DIR/$WORKING_DIR" .terraform.lock.hcl
 git diff -C "$ROOT_DIR/$WORKING_DIR" .terraform.lock.hcl
 if [ "$exist_lock_file" = "false" ] || ! git diff -C "$ROOT_DIR/$WORKING_DIR" .terraform.lock.hcl; then
 	ghcp commit -r "$GITHUB_REPOSITORY" -b "$GITHUB_HEAD_REF" \
